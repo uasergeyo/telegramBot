@@ -3,6 +3,14 @@ var TelegramBot = require('node-telegram-bot-api');
 
 var token = '1292690273:AAEcUwj4uz9ANX4VCpx79qSujWRHKad2FzA';
 var bot = new TelegramBot(token, { polling: true });
+var express = require('express');
+var app = express();
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+
+});
 
 bot.on('message', (msg) => {
     if (msg.text.toString().toLowerCase().indexOf("привет") === 0) {
